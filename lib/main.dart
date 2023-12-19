@@ -8,7 +8,7 @@ class Player {
 }
 
 void main() {
-  // var yj = Player("yj");
+  // var human = Player("human");
   var human = Player(name: "human");
 
   human.name;
