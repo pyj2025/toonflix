@@ -1,5 +1,3 @@
-// import 'package:http/http.dart' as http;
-
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
@@ -12,6 +10,7 @@ class ApiService {
       "https://webtoon-crawler.nomadcoders.workers.dev";
 
   static const String today = "today";
+  static const String episodes = "episodes";
 
   static Future<List<WebtoonModel>> getTodaysToons() async {
     List<WebtoonModel> webtoonInstances = [];
@@ -44,7 +43,7 @@ class ApiService {
   static Future<List<WebtoonEpisodeModel>> getLatestEpisodesById(
       String id) async {
     List<WebtoonEpisodeModel> episodeInstances = [];
-    final url = Uri.parse("$baseURL/$id/episodes");
+    final url = Uri.parse("$baseURL/$id/$episodes");
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
